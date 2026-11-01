@@ -1,3 +1,4 @@
+/* ===== База ===== */
 body {
   background: var(--color-bg);
   color: var(--color-text);
@@ -11,6 +12,7 @@ h3 {
   font-family: var(--font-heading);
   font-weight: 700;
   line-height: 1.2;
+  text-wrap: balance; 
 }
 
 h1 {
@@ -28,24 +30,8 @@ h2 {
   padding-inline: var(--space-sm);
 }
 
-.btn {
-  display: inline-block;
-  padding: 0.9rem 1.8rem;
-  border-radius: var(--radius);
-  background: var(--color-gold);
-  color: #0b0b0c;
-  font-weight: 600;
-  transition: background var(--transition), transform var(--transition);
-}
-
-.btn:hover {
-  background: var(--color-gold-light);
-  transform: translateY(-2px);
-}
-
-.btn:focus-visible {
-  outline: 2px solid var(--color-gold-light);
-  outline-offset: 3px;
+section[id] {
+  scroll-margin-top: var(--header-h);
 }
 
 .text-gold {
@@ -56,13 +42,224 @@ h2 {
   color: var(--color-text-muted);
 }
 
-/* ВРЕМЕННО: тестовый блок, удалим на следующем этапе */
-.test-section {
-  padding: var(--space-xl) 0;
+/* ===== Кнопки ===== */
+.btn {
+  display: inline-block;
+  padding: 0.9rem 1.8rem;
+  border: 1px solid var(--color-gold);
+  border-radius: var(--radius);
+  background: var(--color-gold);
+  color: #0b0b0c;
+  font-weight: 600;
   text-align: center;
+  transition: background var(--transition), border-color var(--transition),
+    color var(--transition), transform var(--transition);
 }
 
-.test-section p {
-  margin: var(--space-md) auto var(--space-lg);
-  max-width: 560px;
+.btn:hover {
+  background: var(--color-gold-light);
+  border-color: var(--color-gold-light);
+  transform: translateY(-2px);
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--color-gold-light);
+  outline-offset: 3px;
+}
+
+.btn--small {
+  padding: 0.6rem 1.2rem;
+  font-size: 0.9rem;
+}
+
+.btn--outline {
+  background: transparent;
+  color: var(--color-gold);
+}
+
+.btn--outline:hover {
+  background: var(--color-gold);
+  border-color: var(--color-gold);
+  color: #0b0b0c;
+}
+
+/* ===== Шапка ===== */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  height: var(--header-h);
+  background: rgba(11, 11, 12, 0.92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.header__inner {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  line-height: 1;
+}
+
+.logo span {
+  display: block;
+  margin-top: 4px;
+  font-family: var(--font-body);
+  font-size: 0.6rem;
+  font-weight: 500;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+}
+
+/* Бургер-кнопка (только на телефоне) */
+.burger {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: 44px;
+  height: 44px;
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+
+.burger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--color-gold);
+  transition: transform var(--transition), opacity var(--transition);
+}
+
+.burger[aria-expanded="true"] span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.burger[aria-expanded="true"] span:nth-child(2) {
+  opacity: 0;
+}
+
+.burger[aria-expanded="true"] span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Меню на телефоне: выпадает под шапкой */
+.nav {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-md) var(--space-sm) var(--space-lg);
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-8px);
+  transition: opacity var(--transition), transform var(--transition),
+    visibility var(--transition);
+}
+
+.nav.is-open {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+}
+
+.nav__list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.nav__link {
+  font-size: 1.1rem;
+  transition: color var(--transition);
+}
+
+.nav__link:hover {
+  color: var(--color-gold);
+}
+
+/* ===== Первый экран ===== */
+.hero {
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  padding: calc(var(--header-h) + var(--space-lg)) 0 var(--space-lg);
+  background:
+    radial-gradient(circle at 80% 15%, rgba(201, 162, 75, 0.18), transparent 50%),
+    linear-gradient(180deg, #0b0b0c 0%, #141416 100%);
+}
+
+.hero__label {
+  margin-bottom: var(--space-sm);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+}
+
+.hero h1 {
+  max-width: 760px;
+}
+
+.hero__text {
+  max-width: 540px;
+  margin: var(--space-md) 0 var(--space-lg);
+  font-size: 1.1rem;
+  color: var(--color-text-muted);
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+}
+
+/* ===== Компьютер (от 900px) ===== */
+@media (min-width: 900px) {
+  .burger {
+    display: none;
+  }
+
+  .nav {
+    position: static;
+    flex-direction: row;
+    gap: var(--space-lg);
+    padding: 0;
+    background: none;
+    border: 0;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+  }
+
+  .nav__list {
+    flex-direction: row;
+    gap: 2rem;
+  }
+
+  .nav__link {
+    font-size: 0.95rem;
+  }
 }

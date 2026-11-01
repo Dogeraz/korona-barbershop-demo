@@ -3,7 +3,8 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Дизайн-тест — барбершоп</title>
+	<title>KORONA Barbershop — мужские стрижки и уход за бородой</title>
+	<meta name="description" content="KORONA Barbershop: мужские стрижки, оформление бороды, бритьё опасной бритвой. Онлайн-запись через WhatsApp и Telegram.">
 
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,12 +15,48 @@
 	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-	<section class="test-section">
-		<div class="container">
-			<h1>Стиль и <span class="text-gold">точность</span></h1>
-			<p class="text-muted">Если фон чёрный, заголовок с засечками, а слово выше золотое, дизайн-основа подключена правильно.</p>
-			<a href="#" class="btn">Записаться</a>
+
+	<header class="header" id="header">
+		<div class="container header__inner">
+			<a href="#top" class="logo">KORONA<span>Barbershop</span></a>
+
+			<button class="burger" id="burger" type="button"
+							aria-label="Открыть меню" aria-expanded="false" aria-controls="nav">
+				<span></span>
+				<span></span>
+				<span></span>
+			</button>
+
+			<nav class="nav" id="nav" aria-label="Основное меню">
+				<ul class="nav__list">
+					<li><a href="#services" class="nav__link">Услуги</a></li>
+					<li><a href="#masters" class="nav__link">Мастера</a></li>
+					<li><a href="#gallery" class="nav__link">Работы</a></li>
+					<li><a href="#reviews" class="nav__link">Отзывы</a></li>
+					<li><a href="#contacts" class="nav__link">Контакты</a></li>
+				</ul>
+				<a href="#contacts" class="btn btn--small">Записаться</a>
+			</nav>
 		</div>
-	</section>
+	</header>
+
+	<main id="top">
+		<section class="hero">
+			<div class="container">
+				<p class="hero__label">Барбершоп в центре города</p>
+				<h1>Стрижки и борода <span class="text-gold">без компромиссов</span></h1>
+				<p class="hero__text">
+					Классические и современные мужские стрижки, уход за бородой и бритьё
+					опасной бритвой. Запишитесь за минуту в удобном мессенджере.
+				</p>
+				<div class="hero__actions">
+					<a href="#contacts" class="btn">Записаться</a>
+					<a href="#services" class="btn btn--outline">Услуги и цены</a>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<script src="js/main.js"></script>
 </body>
 </html>
