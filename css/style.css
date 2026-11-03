@@ -339,6 +339,7 @@ section[id] {
   font-weight: 700;
   white-space: nowrap;
   color: var(--color-gold);
+    font-variant-numeric: lining-nums;
 }
 
 /* ===== Мастера ===== */
