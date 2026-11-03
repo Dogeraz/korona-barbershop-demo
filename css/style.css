@@ -52,6 +52,7 @@ section[id] {
   color: #0b0b0c;
   font-weight: 600;
   text-align: center;
+   cursor: pointer;
   transition: background var(--transition), border-color var(--transition),
     color var(--transition), transform var(--transition);
 }
@@ -386,5 +387,77 @@ section[id] {
 
   .masters {
     grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ===== Контакты ===== */
+.contacts {
+  display: grid;
+  gap: var(--space-lg);
+}
+
+.contacts__list {
+  display: grid;
+  gap: var(--space-md);
+}
+
+.contacts__label {
+  margin-bottom: 0.25rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+}
+
+.contacts__value {
+  font-size: 1.15rem;
+}
+
+.contacts__link {
+  transition: color var(--transition);
+}
+
+.contacts__link:hover {
+  color: var(--color-gold);
+}
+
+.booking {
+  padding: var(--space-lg) var(--space-md);
+  text-align: center;
+  background: var(--color-surface);
+  border: 1px solid var(--color-gold);
+  border-radius: var(--radius);
+}
+
+.booking h3 {
+  margin-bottom: var(--space-xs);
+  font-size: 1.6rem;
+}
+
+.booking__actions {
+  display: grid;
+  gap: var(--space-sm);
+  margin-top: var(--space-md);
+}
+
+/* ===== Подвал ===== */
+.footer {
+  padding: var(--space-md) 0;
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  border-top: 1px solid var(--color-border);
+}
+
+/* ===== Контакты на компьютере (от 900px) ===== */
+@media (min-width: 900px) {
+  .contacts {
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+  }
+
+  .booking__actions {
+    grid-template-columns: 1fr 1fr;
   }
 }
