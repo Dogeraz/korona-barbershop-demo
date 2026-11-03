@@ -263,3 +263,127 @@ section[id] {
     font-size: 0.95rem;
   }
 }
+
+/* ===== Секции ===== */
+.section {
+  padding: var(--space-xl) 0;
+}
+
+.section--alt {
+  background: var(--color-surface);
+  border-block: 1px solid var(--color-border);
+}
+
+.section__head {
+  max-width: 640px;
+  margin-bottom: var(--space-lg);
+}
+
+.section__label {
+  margin-bottom: var(--space-xs);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+}
+
+.section__lead {
+  margin-top: var(--space-sm);
+}
+
+.section__note {
+  margin-top: var(--space-md);
+  font-size: 0.9rem;
+}
+
+/* ===== Услуги ===== */
+.services {
+  display: grid;
+  gap: var(--space-sm);
+}
+
+.service {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-sm);
+  padding: var(--space-md);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  transition: border-color var(--transition), transform var(--transition);
+}
+
+.service:hover {
+  border-color: var(--color-gold);
+  transform: translateY(-2px);
+}
+
+.service__name {
+  font-family: var(--font-body);
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.service__meta {
+  margin-top: 0.25rem;
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+}
+
+.service__price {
+  flex-shrink: 0;
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  font-weight: 700;
+  white-space: nowrap;
+  color: var(--color-gold);
+}
+
+/* ===== Мастера ===== */
+.masters {
+  display: grid;
+  gap: var(--space-md);
+}
+
+.master {
+  padding: var(--space-lg) var(--space-md);
+  text-align: center;
+  background: var(--color-surface-2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+}
+
+.master__avatar {
+  display: grid;
+  place-items: center;
+  width: 96px;
+  height: 96px;
+  margin: 0 auto var(--space-md);
+  border: 2px solid var(--color-gold);
+  border-radius: 50%;
+  background: var(--color-bg);
+  font-family: var(--font-heading);
+  font-size: 2.2rem;
+  color: var(--color-gold);
+}
+
+.master__role {
+  margin: 0.25rem 0 var(--space-sm);
+  font-size: 0.85rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+}
+
+/* ===== Планшет и компьютер (от 700px) ===== */
+@media (min-width: 700px) {
+  .services {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .masters {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
