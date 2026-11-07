@@ -84,6 +84,13 @@ section[id] {
   color: #0b0b0c;
 }
 
+.btn:disabled,
+.btn[aria-disabled="true"] {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none;
+}
+
 /* ===== Шапка ===== */
 .header {
   position: fixed;
